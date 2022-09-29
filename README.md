@@ -1,24 +1,4 @@
-<!-- Please update value in the {}  -->
 
-<h1 align="center">Login with PHP</h1>
-
-<div align="center">
-  <h3>
-    <a href="https://{https://loginphp7.herokuapp.com/}">
-      Demo
-    </a>
-    <span> | </span>
-    <a href="https://{[Repo](https://github.com/SebasttianDaza/LoginPHP)}">
-      Solution
-    </a>
-    <span> | </span>
-    <a href="https://emprendeyourlifestyle.com/portafolio/">
-      Website
-    </a>
-  </h3>
-</div>
-
-<!-- TABLE OF CONTENTS -->
 
 ## Table of Contents
 
@@ -58,14 +38,5 @@ To clone and run this application, you'll need [Git](https://git-scm.com) and [N
 $ git clone https://github.com/your-user-name/your-project-name
 
 # Install dependencies
-$ npm install
 $ composer install
 
-# Run the app, you can use nginx or apache
-```
-
-## Contact
-
-- Website [emprendeyourlifestyle.com](https://emprendeyourlifestyle.com/)
-- GitHub [@SebasttianDaza](https://github.com/SebasttianDaza)
-- Twitter [@SebasttianDaza](https://twitter.com/SebasttianDaza)
