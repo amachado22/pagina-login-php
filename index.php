@@ -1,62 +1,27 @@
 <?php
-include('conexao.php');
+    error_reporting(E_ERROR);
+    require_once './vendor/autoload.php';
 
-if(isset($_POST['email']) || isset($_POST['senha'])){
-    
-    if(strlen($_POST['email']) == 0) {
-        echo "Preencha seu e-mail";
-    } else if(strlen($_POST['senha']) == 0) {
-        echo "Preencha sua senha";
-    } else {
+    $loader = new \Twig\Loader\FilesystemLoader('./views');
 
-        $email = $mysqli->real_escape_string($_POST['email']);
-        $email = $mysqli->real_escape_string($_POST['senha']);    
+    $twig = new \Twig\Environment($loader, [
+        'cache' => false,
+    ]);
 
-        $sql_code = "SELECT * FROM usuarios WHERE email = '$email' AND senha = '$senha'";
-        $sql_query = $mysqli->query($sql_code) or die ("Falha na execução do SQL: ". $mysqli->error);
+    $base = $twig->load('./Templates/template-base-html.html.twig');
 
-        $quantidade = $sql_query->num_rows;
-        
-        if($quantidade == 1 ) {
-            
-            $usuario = $sql_query->fetch_assoc();
-
-            if(!isset($_SESSION)) {
-                session_start();
-            }
-            $_SESSION['id'] = $usuario['id'];
-            $_SESSION['nome'] = $usuario['nome'];
-
-            header("Location: painel.php");
-
-        } else {
-            echo "Falha ao logar! E-mail ou senha incorretos";
-        }
+    if($_GET['message'] === "logout") {
+        session_start();
+        session_destroy();
+        header('Location: ./index.php');
     }
-}
+
+    if($_GET['message'] === "authenticatedfalse") {
+        echo "<script>alert('Você deve fazer login para acessar o aplicativo.');</script>";
+    }
+    
+    echo $twig->render('index-default.html.twig', 
+    array('base' => $base, 'handle' => './Email/handleEmail.php'));
+
+    
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
-<body>
-    <h1>Acesse sua conta</h1>
-    <form action="" method="POST">
-        <p>
-            <label>E-mail</label>
-            <input type="text" name="email">
-</p>
-<p>
-            <label>Senha</label>
-            <input type="password" name="senha">
-            <p>
-                <button type="submit">Entrar</button>
-        </p>
-</p>
-</form>
-</body>
-</html>

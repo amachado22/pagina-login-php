@@ -1,0 +1,36 @@
+vendor
+vendor/composer
+vendor/composer/symfony
+vendor/twig
+vendor/autoload.php
+
+
+/build/logs
+/build/coverage
+
+
+/app/tests/_log
+
+
+composer.phar
+
+
+.DS_Store
+
+
+/.idea
+/_ide_helper.php
+
+
+/app/config/packages
+/public/packages
+
+
+/node_modules
+
+
+.env
+
+# Commit your application's lock file https://getcomposer.org/doc/01-basic-usage.md#commit-your-composer-lock-file-to-version-control
+# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
+# composer.lock

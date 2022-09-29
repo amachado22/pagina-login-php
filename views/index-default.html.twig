@@ -1,0 +1,33 @@
+{% extends base %}
+
+{% block head %}
+    {% block title %} <title>Login</title> {% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="SRC/CSS/index.css">
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+
+    <section class="content">
+        <article class="contentImage">
+            <img src="Public/Image/OIP.webp" alt="image of login">
+        </article>
+
+
+        <form action="{{ handle }}" method="POST" enctype="multipart/form-data" class="form">
+            <div class="control-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required placeholder="Seu email" autocomplete="false">
+            </div>
+            <div class="control-group">
+                <label for=" password">Password</label>
+                <input type="password" name="password" id="password" required placeholder="Sua senha" autocomplete="false">
+            </div>
+            <div class="control-group">
+                <input type="submit" value="Login" name="Login">
+                <input type="submit" value="Register" name="Registro">
+            </div>
+        </form>
+    </section>
+{% endblock body %}

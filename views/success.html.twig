@@ -1,0 +1,30 @@
+{% extends base %}
+
+{% block head %}
+    {% block title %} <title>{{ titlePage }}</title> {% endblock %}
+    {% block stylesheets %}
+        <link rel="stylesheet" type="text/css" href="{{ urlCss }}">
+        <script type="module" src="{{ urlJS }}"></script>
+    {% endblock %}
+{% endblock %}
+
+{% block body %}
+    <main class="container">
+        <article class="row">
+            <div class="content-row">
+                <div class="content-image">
+                    <img src="{{ urlImage }}" alt={{ seoImage }}>
+                </div>
+            </div>
+        </article>
+        <article class="row">
+            <div class="content-row">
+                <div class="content-text">
+                    <h1>{{ title }}</h1>
+                    <p>{{ text }}</p>
+                    <button class="btn btn-primary" id="{{ idBtn }}">{{ textBtn }}</button>
+                </div>
+            </div>
+        </article>
+    </main>
+{% endblock body %}
